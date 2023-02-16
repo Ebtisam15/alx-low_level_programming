@@ -1,10 +1,10 @@
 #include <studio.h>
 /**
  * main - main block
- *return: 0
+ *Return: 0
  */
 int main(void)
 {
-  puts("\"Programming is like develop a multilingual puzzle");
+  puts("\"Programming is like building a multilingual puzzle");
   return (0);
 }
