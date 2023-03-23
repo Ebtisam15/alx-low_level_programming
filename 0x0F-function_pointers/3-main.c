@@ -1,79 +1,45 @@
-#include "function_pointers.h"
-
-#include <stdlib.h>
-
-#include <stdio.h>
-
 #include "3-calc.h"
 
 /**
-
- * main - Prints the result of simple operations.
-
- * @argc: The number of arguments supplied to the program.
-
- * @argv: An array of pointers to the arguments.
-
- *
-
- * Return: Always 0.
-
+ * main - program that perfroms simple operations
+ * @argc: number of arguments
+ * @argv: array of arguments
+ * Return: Always 0 (Success)
  */
-
-int main(int __attribute__((__unused__)) argc, char *argv[])
-
+int main(int argc, char *argv[])
 {
+	int arg1, arg2, result;
+	char o;
+	int (*func)(int, int);
 
-        int num1, num2;
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
-        char *op;
+	arg1 = atoi(argv[1]);
+	arg2 = atoi(argv[3]);
 
+	func = get_op_func(argv[2]);
 
-        if (argc != 4)
+	if (!func)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
-        {
+	o = *argv[2];
 
-                printf("Error\n");
+	if ((o == '/' || o == '%') && arg2 == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
 
-                exit(98);
+	result = func(arg1, arg2);
 
-        }
+	printf("%d\n", result);
 
-
-        num1 = atoi(argv[1]);
-
-        op = argv[2];
-
-        num2 = atoi(argv[3]);
-
-
-        if (get_op_func(op) == NULL || op[1] != '\0')
-
-        {
-
-                printf("Error\n");
-
-                exit(99);
-
-        }
-
-
-        if ((*op == '/' && num2 == 0) ||
-
-            (*op == '%' && num2 == 0))
-
-        {
-
-                printf("Error\n");
-
-                exit(100);
-
-        }
-
-
-        printf("%d\n", get_op_func(op)(num1, num2));
-
-
-        return (0);
-
+	return (0);
 }
