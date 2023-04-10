@@ -1,6 +1,5 @@
 #include "main.h"
-	
-	/**
+/**
 	 * "main" will copy the content of the file to another file
 	 * @argc: is the number of arguments passed to the program
 	 * @argv: is the array of arguments
@@ -11,9 +10,8 @@
 	{
 		int fd_r, fd_w, x, m, n;
 		char buf[BUFSIZ];
-	
 		if (argc != 3)
-		{
+		  {
 			dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 			exit(97);
 		}
