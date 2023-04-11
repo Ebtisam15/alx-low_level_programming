@@ -1,7 +1,7 @@
 #include "main.h"
 	
 	/**
-	 * print_binary – will print the binary equivalent of a decimal number
+	 * @print_binary – will print the binary equivalent of a decimal number
 	 * @n: number into print that is in binary
 	 */
 	void print_binary(unsigned long int n)
