@@ -1,4 +1,5 @@
-#include "main.h/**
+#include "main.h"
+/**
 	 * flip_bits – will count the number of bits to change
 	 * to get from one number to another
 	 * @n: represents the first number
